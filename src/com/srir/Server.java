@@ -7,13 +7,17 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
 
-public class Server implements ServerInt {
-	
-	public Server()
+/// Klasa impementuj¹ca funkcjonalnoœæ serwea
+	/** W klasie tej znajduj¹ siê implementacje funkcji 
+	 * interfesju serwera, które s¹ udostêpniane dla klienta oraz cia³o (main) serwera aplikacji */
+
+public class Server implements ServerInt { 
+	public Server()								
 	{}
 	MySQLTest baza = new MySQLTest();
 	
-	
+	/// Funkcja zwracaj¹ca treœæ uchwa³y
+		/** Funkcja wywo³uje obiekt klast MySQLTest, pobiera, za pomoc¹ jego funkcji, treœæ uchwa³y. */
 	public String pokazUchwale()
 
 	{
@@ -32,7 +36,8 @@ public class Server implements ServerInt {
 		}
 		return body;
 	}
-	
+	/// Funkcja zwracaj¹ca g³soy uchwa³y
+			/** Funkcja wywo³uje obiekt klast MySQLTest, pobiera, za pomoc¹ jego funkcji, iloœci g³osów dla danej uchwa³y. */
 	public String pokazGlosy()
 	{
 		String wynik=null;
@@ -49,7 +54,9 @@ public class Server implements ServerInt {
 		}
 		return wynik;
 	}
-	public String glosZa()
+	/// Funkcja g³osuj¹ca za
+	/** Funkcja wywo³uje obiekt klast MySQLTest, za pomoc¹ jego funkcji g³osuje za uchwa³¹. */
+public String glosZa()
 	{	
 		
 		try
@@ -65,7 +72,8 @@ public class Server implements ServerInt {
 		}
 		return "Zaglosowales za uchwala!";
 	}
-	
+/// Funkcja g³osuj¹ca przeciw
+	/** Funkcja wywo³uje obiekt klast MySQLTest, za pomoc¹ jego funkcji g³osuje za uchwa³¹. */
 	public String glosPrzeciw()
 	{	
 		
@@ -82,7 +90,8 @@ public class Server implements ServerInt {
 		}
 		return "Zaglosowales przeciw uchwale!";
 	}
-
+	/// Funkcja wstrzymuj¹ca od g³osu
+		/** Funkcja wywo³uje obiekt klast MySQLTest, za pomoc¹ jego funkcji wstrzymuje siê od g³osu. */
 	public String glosBz()
 	{	
 		
@@ -99,7 +108,8 @@ public class Server implements ServerInt {
 		}
 		return "Wstrzymales sie od glosu!";
 	}
-	
+	/// Main serwera
+		/**zawarta jest tutaj funkjonalnoœæ serwera, obs³uga RMI (tworzenie rejestru, bindowanie i udostêpnianie) */
 	public static void main(String[] args) {
 		
 		
@@ -109,6 +119,7 @@ public class Server implements ServerInt {
 			Server obj = new Server();
 			ServerInt stub = (ServerInt) UnicastRemoteObject.exportObject(obj, 0);
 			System.out.println(InetAddress.getLocalHost().getHostAddress());
+			
 			
 			Registry registry = LocateRegistry.createRegistry(1099);
 			registry.bind("ServerInt", stub);

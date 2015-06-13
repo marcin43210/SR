@@ -3,7 +3,8 @@ package com.srir;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
-
+///Klasa zawieraj¹ca funkcjonalnoœæ klienta
+	/**W klasie tej znajduje siê po³¹czenie klienta z serwerem (localhost b¹dŸ odpowiednie ip), implementacja RMI (pobranie rejestru i interfejsu od serwera, wywoa³enie ¿¹danych funkcji serwera). */
 public class Client {
 	
 	private Client(){};
@@ -21,6 +22,7 @@ public class Client {
 			
 			Scanner input = new Scanner(System.in);
 			int i=input.nextInt();
+			/** Wybór g³osu przez klienta oraz wywo³anie funkcji serwera */
 			switch (i) {
 			  case 1:
 			  { 

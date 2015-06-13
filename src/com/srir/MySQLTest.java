@@ -55,6 +55,37 @@ public class MySQLTest {
   return tresc;
  }
 
+ 	String viewVotes() throws SQLException {
+	  String query = "select za, przeciw, wstrz from sr where id=1";
+	  int za=0;
+	  int przeciw=0;
+	  String wstrz =null;
+	 
+	  Statement stmt = null;
+	  try {
+	   stmt = (Statement) databaseConnection.createStatement();
+	   ResultSet rs = stmt.executeQuery(query);
+	   // Dopóki zbiór wyników posiada jakieœ dane to wypisuj
+	  while(rs.next()){
+	             za =rs.getInt("za");
+	  przeciw =rs.getInt("przeciw");
+	  wstrz =rs.getString("wstrz");
+	  }
+	  System.out.println(za +"   "+ przeciw+ "   " + wstrz);
+	  			
+	             
+	    
+	  } catch (SQLException e) 
+	  {
+	   e.printStackTrace();
+	  } finally {
+	      // Zamknij obiekt Statement, aby natychmiast zwolniæ jego pamiêæ
+	    if (stmt != null) { stmt.close(); }
+	  }
+	  return ("WYNIKI: Glosow za: " +za + " Glosow przeciw: " + przeciw + " Wstrzymalo sie od glosow: " + wstrz);
+	 }
+ 
+ 
 void updateZa() throws SQLException {
  String query = "UPDATE sr SET za=za+1";
  Statement stmt = null;

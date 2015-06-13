@@ -15,6 +15,7 @@ public class Server implements ServerInt {
 	
 	
 	public String pokazUchwale()
+
 	{
 		String body = null;
 		
@@ -30,6 +31,23 @@ public class Server implements ServerInt {
 			e.printStackTrace();
 		}
 		return body;
+	}
+	
+	public String pokazGlosy()
+	{
+		String wynik=null;
+		try
+		{
+			baza.databaseConnection=baza.getConnection();
+			wynik = baza.viewVotes();
+			
+			
+			
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return wynik;
 	}
 	public String glosZa()
 	{	
@@ -91,6 +109,7 @@ public class Server implements ServerInt {
 			Server obj = new Server();
 			ServerInt stub = (ServerInt) UnicastRemoteObject.exportObject(obj, 0);
 			System.out.println(InetAddress.getLocalHost().getHostAddress());
+			
 			Registry registry = LocateRegistry.createRegistry(1099);
 			registry.bind("ServerInt", stub);
 			System.out.println("Serwer gotowy");

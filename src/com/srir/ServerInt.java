@@ -8,6 +8,7 @@ public interface ServerInt extends Remote {
 	String glosZa() throws RemoteException;
 	String glosPrzeciw() throws RemoteException;
 	String glosBz() throws RemoteException;
+	String pokazGlosy() throws RemoteException;
 	
 
 }

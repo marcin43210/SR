@@ -39,6 +39,8 @@ public class Client {
 			  }
 			    
 			}
+			String wyniki = stub.pokazGlosy();
+			System.out.println(wyniki);
 			
 		}catch (Exception e)
 		{

@@ -22,7 +22,7 @@ public class Server implements ServerInt {
 		{
 			baza.databaseConnection=baza.getConnection();
 			body = baza.viewTable();
-			System.out.println("Wyslalem tresc uchwaly");
+			System.out.println("Wyslalem tresc uchwaly.");
 			
 			
 		}catch(SQLException e)

@@ -1,0 +1,5 @@
+start java -Djava.security.policy=C:\java_w\SR\bin\java.policy -classpath C:\connector\mysql-connector-java-5.1.35-bin.jar;C:\java_w\SR\bin com.srir.Server
+
+java -Djava.security.policy=C:\java_w\SR\bin\java.policy -classpath C:\java_w\SR\bin com.srir.Client
+
+najpierw wpierdalasz do konsoli to pierwsze i powinna sie odpalic kolejna konsola z napisem "serwer gotowy" czy cos takiego a pozniej wpierdalasz do tej pierwszej konsoli te druga linijke i nie powinno ci odpalic nowej tylko w tej wypisac cos hello costam i na serwerze tez powinno wypierdolic ze odebra³ i wyslal.

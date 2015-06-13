@@ -1,1 +1,0 @@
-start java -Djava.security.policy=C:\java_w\SR\bin\java.policy -classpath C:\connector\mysql-connector-java-5.1.35-bin.jar;C:\java_w\SR\bin com.srir.Server
